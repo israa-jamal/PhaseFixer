@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C34C0F327A2F1D100BCB262 /* PhaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C34C0F227A2F1D100BCB262 /* PhaseViewModel.swift */; };
+		0C34C0FD27A312F200BCB262 /* RushingWater.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0C34C0FA27A312F200BCB262 /* RushingWater.m4a */; };
+		0C34C10727A3373E00BCB262 /* AudioUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C34C10627A3373E00BCB262 /* AudioUtilities.swift */; };
+		0C34C11027A4359700BCB262 /* RushingWaterPhased.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0C34C10D27A4359700BCB262 /* RushingWaterPhased.m4a */; };
 		0C3D1C1B279C321800BBFFAC /* AudioContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3D1C1A279C321800BBFFAC /* AudioContext.swift */; };
-		0C3D1C1E279C41DA00BBFFAC /* starmanDelayedEqualized.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0C3D1C1C279C41DA00BBFFAC /* starmanDelayedEqualized.m4a */; };
-		0C3D1C23279C42C100BBFFAC /* starmanOriginalEqualized.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0C3D1C22279C42C100BBFFAC /* starmanOriginalEqualized.m4a */; };
 		0C9CEB93279B32E20076D484 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9CEB92279B32E20076D484 /* AppDelegate.swift */; };
 		0C9CEB95279B32E20076D484 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9CEB94279B32E20076D484 /* SceneDelegate.swift */; };
 		0C9CEB97279B32E20076D484 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9CEB96279B32E20076D484 /* ViewController.swift */; };
@@ -17,14 +19,14 @@
 		0C9CEB9C279B32E40076D484 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C9CEB9B279B32E40076D484 /* Assets.xcassets */; };
 		0C9CEB9F279B32E40076D484 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C9CEB9D279B32E40076D484 /* LaunchScreen.storyboard */; };
 		0C9CEBA9279B33400076D484 /* DSWaveformImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0C9CEBA8279B33400076D484 /* DSWaveformImage */; };
-		0C9CEBAC279B36870076D484 /* starmanDelayed.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0C9CEBAB279B36870076D484 /* starmanDelayed.m4a */; };
-		0C9CEC3B279B51400076D484 /* starmanOriginal.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0C9CEC3A279B51400076D484 /* starmanOriginal.m4a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C34C0F227A2F1D100BCB262 /* PhaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhaseViewModel.swift; sourceTree = "<group>"; };
+		0C34C0FA27A312F200BCB262 /* RushingWater.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = RushingWater.m4a; sourceTree = "<group>"; };
+		0C34C10627A3373E00BCB262 /* AudioUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioUtilities.swift; sourceTree = "<group>"; };
+		0C34C10D27A4359700BCB262 /* RushingWaterPhased.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = RushingWaterPhased.m4a; sourceTree = "<group>"; };
 		0C3D1C1A279C321800BBFFAC /* AudioContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioContext.swift; sourceTree = "<group>"; };
-		0C3D1C1C279C41DA00BBFFAC /* starmanDelayedEqualized.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = starmanDelayedEqualized.m4a; sourceTree = "<group>"; };
-		0C3D1C22279C42C100BBFFAC /* starmanOriginalEqualized.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = starmanOriginalEqualized.m4a; sourceTree = "<group>"; };
 		0C9CEB8F279B32E20076D484 /* PhaseFixer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhaseFixer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C9CEB92279B32E20076D484 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C9CEB94279B32E20076D484 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,8 +35,6 @@
 		0C9CEB9B279B32E40076D484 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C9CEB9E279B32E40076D484 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C9CEBA0279B32E40076D484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0C9CEBAB279B36870076D484 /* starmanDelayed.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = starmanDelayed.m4a; sourceTree = "<group>"; };
-		0C9CEC3A279B51400076D484 /* starmanOriginal.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = starmanOriginal.m4a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,13 +49,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C34C10827A40FA800BCB262 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0C3D1C1A279C321800BBFFAC /* AudioContext.swift */,
+				0C34C10627A3373E00BCB262 /* AudioUtilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0C34C10927A40FD100BCB262 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0C34C0F227A2F1D100BCB262 /* PhaseViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0C34C10B27A40FF800BCB262 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0C9CEB96279B32E20076D484 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		0C3D1C24279C57E500BBFFAC /* Tracks */ = {
 			isa = PBXGroup;
 			children = (
-				0C3D1C22279C42C100BBFFAC /* starmanOriginalEqualized.m4a */,
-				0C3D1C1C279C41DA00BBFFAC /* starmanDelayedEqualized.m4a */,
-				0C9CEC3A279B51400076D484 /* starmanOriginal.m4a */,
-				0C9CEBAB279B36870076D484 /* starmanDelayed.m4a */,
+				0C34C10D27A4359700BCB262 /* RushingWaterPhased.m4a */,
+				0C34C0FA27A312F200BCB262 /* RushingWater.m4a */,
 			);
 			path = Tracks;
 			sourceTree = "<group>";
@@ -90,8 +113,9 @@
 			children = (
 				0C9CEB92279B32E20076D484 /* AppDelegate.swift */,
 				0C9CEB94279B32E20076D484 /* SceneDelegate.swift */,
-				0C3D1C1A279C321800BBFFAC /* AudioContext.swift */,
-				0C9CEB96279B32E20076D484 /* ViewController.swift */,
+				0C34C10827A40FA800BCB262 /* Utilities */,
+				0C34C10B27A40FF800BCB262 /* Controller */,
+				0C34C10927A40FD100BCB262 /* ViewModel */,
 				0C3D1C25279C57F600BBFFAC /* View */,
 				0C3D1C24279C57E500BBFFAC /* Tracks */,
 				0C9CEB9B279B32E40076D484 /* Assets.xcassets */,
@@ -165,11 +189,9 @@
 			files = (
 				0C9CEB9F279B32E40076D484 /* LaunchScreen.storyboard in Resources */,
 				0C9CEB9C279B32E40076D484 /* Assets.xcassets in Resources */,
-				0C9CEBAC279B36870076D484 /* starmanDelayed.m4a in Resources */,
-				0C9CEC3B279B51400076D484 /* starmanOriginal.m4a in Resources */,
-				0C3D1C23279C42C100BBFFAC /* starmanOriginalEqualized.m4a in Resources */,
+				0C34C0FD27A312F200BCB262 /* RushingWater.m4a in Resources */,
 				0C9CEB9A279B32E20076D484 /* Main.storyboard in Resources */,
-				0C3D1C1E279C41DA00BBFFAC /* starmanDelayedEqualized.m4a in Resources */,
+				0C34C11027A4359700BCB262 /* RushingWaterPhased.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,9 +203,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C9CEB97279B32E20076D484 /* ViewController.swift in Sources */,
+				0C34C10727A3373E00BCB262 /* AudioUtilities.swift in Sources */,
 				0C3D1C1B279C321800BBFFAC /* AudioContext.swift in Sources */,
 				0C9CEB93279B32E20076D484 /* AppDelegate.swift in Sources */,
 				0C9CEB95279B32E20076D484 /* SceneDelegate.swift in Sources */,
+				0C34C0F327A2F1D100BCB262 /* PhaseViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
