@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C18251627ABF73400BDAA0B /* WaveForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C18251527ABF73400BDAA0B /* WaveForm.swift */; };
+		0C18251827AC143B00BDAA0B /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C18251727AC143B00BDAA0B /* AudioPlayer.swift */; };
+		0C18251A27AC214900BDAA0B /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C18251927AC214900BDAA0B /* AudioPlayerManager.swift */; };
 		0C34C0F327A2F1D100BCB262 /* PhaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C34C0F227A2F1D100BCB262 /* PhaseViewModel.swift */; };
 		0C34C0FD27A312F200BCB262 /* RushingWater.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0C34C0FA27A312F200BCB262 /* RushingWater.m4a */; };
 		0C34C10727A3373E00BCB262 /* AudioUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C34C10627A3373E00BCB262 /* AudioUtilities.swift */; };
@@ -18,10 +21,13 @@
 		0C9CEB9A279B32E20076D484 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C9CEB98279B32E20076D484 /* Main.storyboard */; };
 		0C9CEB9C279B32E40076D484 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C9CEB9B279B32E40076D484 /* Assets.xcassets */; };
 		0C9CEB9F279B32E40076D484 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C9CEB9D279B32E40076D484 /* LaunchScreen.storyboard */; };
-		0C9CEBA9279B33400076D484 /* DSWaveformImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0C9CEBA8279B33400076D484 /* DSWaveformImage */; };
+		0CDAB01727AC582F00841191 /* RushingWaterRecorded.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0CDAB01627AC582F00841191 /* RushingWaterRecorded.m4a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C18251527ABF73400BDAA0B /* WaveForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveForm.swift; sourceTree = "<group>"; };
+		0C18251727AC143B00BDAA0B /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		0C18251927AC214900BDAA0B /* AudioPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerManager.swift; sourceTree = "<group>"; };
 		0C34C0F227A2F1D100BCB262 /* PhaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhaseViewModel.swift; sourceTree = "<group>"; };
 		0C34C0FA27A312F200BCB262 /* RushingWater.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = RushingWater.m4a; sourceTree = "<group>"; };
 		0C34C10627A3373E00BCB262 /* AudioUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioUtilities.swift; sourceTree = "<group>"; };
@@ -35,6 +41,7 @@
 		0C9CEB9B279B32E40076D484 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C9CEB9E279B32E40076D484 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C9CEBA0279B32E40076D484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0CDAB01627AC582F00841191 /* RushingWaterRecorded.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = RushingWaterRecorded.m4a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +49,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C9CEBA9279B33400076D484 /* DSWaveformImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +58,7 @@
 		0C34C10827A40FA800BCB262 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				0C18251527ABF73400BDAA0B /* WaveForm.swift */,
 				0C3D1C1A279C321800BBFFAC /* AudioContext.swift */,
 				0C34C10627A3373E00BCB262 /* AudioUtilities.swift */,
 			);
@@ -70,6 +77,8 @@
 			isa = PBXGroup;
 			children = (
 				0C9CEB96279B32E20076D484 /* ViewController.swift */,
+				0C18251727AC143B00BDAA0B /* AudioPlayer.swift */,
+				0C18251927AC214900BDAA0B /* AudioPlayerManager.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -77,6 +86,7 @@
 		0C3D1C24279C57E500BBFFAC /* Tracks */ = {
 			isa = PBXGroup;
 			children = (
+				0CDAB01627AC582F00841191 /* RushingWaterRecorded.m4a */,
 				0C34C10D27A4359700BCB262 /* RushingWaterPhased.m4a */,
 				0C34C0FA27A312F200BCB262 /* RushingWater.m4a */,
 			);
@@ -141,7 +151,6 @@
 			);
 			name = PhaseFixer;
 			packageProductDependencies = (
-				0C9CEBA8279B33400076D484 /* DSWaveformImage */,
 			);
 			productName = PhaseFixer;
 			productReference = 0C9CEB8F279B32E20076D484 /* PhaseFixer.app */;
@@ -171,7 +180,6 @@
 			);
 			mainGroup = 0C9CEB86279B32E20076D484;
 			packageReferences = (
-				0C9CEBA7279B33400076D484 /* XCRemoteSwiftPackageReference "DSWaveformImage" */,
 			);
 			productRefGroup = 0C9CEB90279B32E20076D484 /* Products */;
 			projectDirPath = "";
@@ -190,6 +198,7 @@
 				0C9CEB9F279B32E40076D484 /* LaunchScreen.storyboard in Resources */,
 				0C9CEB9C279B32E40076D484 /* Assets.xcassets in Resources */,
 				0C34C0FD27A312F200BCB262 /* RushingWater.m4a in Resources */,
+				0CDAB01727AC582F00841191 /* RushingWaterRecorded.m4a in Resources */,
 				0C9CEB9A279B32E20076D484 /* Main.storyboard in Resources */,
 				0C34C11027A4359700BCB262 /* RushingWaterPhased.m4a in Resources */,
 			);
@@ -202,12 +211,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C34C11927A4670400BCB262 /* Try.swift in Sources */,
 				0C9CEB97279B32E20076D484 /* ViewController.swift in Sources */,
 				0C34C10727A3373E00BCB262 /* AudioUtilities.swift in Sources */,
+				0C18251627ABF73400BDAA0B /* WaveForm.swift in Sources */,
+				0C18251827AC143B00BDAA0B /* AudioPlayer.swift in Sources */,
 				0C3D1C1B279C321800BBFFAC /* AudioContext.swift in Sources */,
 				0C9CEB93279B32E20076D484 /* AppDelegate.swift in Sources */,
 				0C9CEB95279B32E20076D484 /* SceneDelegate.swift in Sources */,
+				0C18251A27AC214900BDAA0B /* AudioPlayerManager.swift in Sources */,
 				0C34C0F327A2F1D100BCB262 /* PhaseViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,25 +421,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		0C9CEBA7279B33400076D484 /* XCRemoteSwiftPackageReference "DSWaveformImage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/dmrschmidt/DSWaveformImage";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.3;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		0C9CEBA8279B33400076D484 /* DSWaveformImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0C9CEBA7279B33400076D484 /* XCRemoteSwiftPackageReference "DSWaveformImage" */;
-			productName = DSWaveformImage;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0C9CEB87279B32E20076D484 /* Project object */;
 }

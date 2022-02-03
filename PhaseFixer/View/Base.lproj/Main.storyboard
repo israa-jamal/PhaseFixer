@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,93 +13,129 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PhaseFixer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VDk-AX-AdK">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="316"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Pfw-On-he3">
+                                <rect key="frame" x="189" y="731" width="40" height="40"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Pfw-On-he3">
-                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="32"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLq-lO-DwW">
-                                                <rect key="frame" x="0.0" y="0.0" width="341.5" height="32"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                                <state key="normal" title="Play">
-                                                    <color key="titleColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="play:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ucg-sb-xOH"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FUg-qF-xGT">
-                                                <rect key="frame" x="341.5" y="0.0" width="341" height="32"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                                <state key="normal" title="Stop">
-                                                    <color key="titleColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="stop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1uw-lz-liN"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xwl-sJ-MgZ">
-                                                <rect key="frame" x="682.5" y="0.0" width="341.5" height="32"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                                <state key="normal" title="Play in phase">
-                                                    <color key="titleColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="playInPhase:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Oo-wQ-9o7"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="       Rushing Water" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZc-DV-rO9">
-                                        <rect key="frame" x="0.0" y="40" width="1024" height="20"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLq-lO-DwW">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="0BW-Dl-P2v"/>
+                                            <constraint firstAttribute="height" constant="40" id="euv-JN-bW7"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.47450980392156861" green="0.21568627450980393" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="play">
+                                            <color key="titleColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="play:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ucg-sb-xOH"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VDk-AX-AdK">
+                                <rect key="frame" x="0.0" y="776" width="428" height="106"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Rushing Water" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZc-DV-rO9" userLabel="Rush">
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="hck-ge-KUe"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                         <color key="textColor" systemColor="tertiarySystemBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qS6-6R-iZI" customClass="WaveformImageView" customModule="DSWaveformImage">
-                                        <rect key="frame" x="0.0" y="68" width="1024" height="120"/>
-                                        <color key="backgroundColor" red="0.070588235294117646" green="0.27843137254901962" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="tintColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0t4-XJ-r5K">
+                                        <rect key="frame" x="0.0" y="28" width="428" height="50"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowUp" translatesAutoresizingMaskIntoConstraints="NO" id="coj-5G-Bg1">
+                                                <rect key="frame" x="58" y="5" width="30" height="30"/>
+                                                <color key="tintColor" red="0.47450980390000003" green="0.2156862745" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="6kh-4N-Bvv"/>
+                                                    <constraint firstAttribute="width" constant="30" id="VNQ-cC-Bcq"/>
+                                                </constraints>
+                                            </imageView>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Dbd-kn-7Zk">
+                                                <rect key="frame" x="87" y="10" width="254" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="250" id="8Tn-rE-N3D"/>
+                                                </constraints>
+                                                <color key="minimumTrackTintColor" red="0.29803921570000003" green="0.14901960780000001" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="maximumTrackTintColor" red="0.29803921570000003" green="0.14901960780000001" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="thumbTintColor" red="0.1803921568627451" green="0.20392156862745098" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="trackSliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="pVj-NR-Ly3"/>
+                                                </connections>
+                                            </slider>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowDown" translatesAutoresizingMaskIntoConstraints="NO" id="2SH-mZ-Y3g">
+                                                <rect key="frame" x="340" y="17" width="30" height="30"/>
+                                                <color key="tintColor" red="0.47450980390000003" green="0.2156862745" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="6Me-j3-mMx"/>
+                                                    <constraint firstAttribute="width" constant="30" id="fw2-nS-EUR"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="e1V-6E-Jfo"/>
+                                            <constraint firstItem="Dbd-kn-7Zk" firstAttribute="centerY" secondItem="0t4-XJ-r5K" secondAttribute="centerY" id="7Ex-qy-cNb"/>
+                                            <constraint firstItem="2SH-mZ-Y3g" firstAttribute="centerY" secondItem="Dbd-kn-7Zk" secondAttribute="centerY" constant="7" id="LIm-eC-Q2K"/>
+                                            <constraint firstAttribute="height" constant="50" id="NUr-HI-xH2"/>
+                                            <constraint firstItem="coj-5G-Bg1" firstAttribute="centerY" secondItem="Dbd-kn-7Zk" secondAttribute="centerY" constant="-5" id="OOw-NV-Kjd"/>
+                                            <constraint firstItem="Dbd-kn-7Zk" firstAttribute="centerX" secondItem="0t4-XJ-r5K" secondAttribute="centerX" id="PAE-xF-qlg"/>
+                                            <constraint firstItem="2SH-mZ-Y3g" firstAttribute="leading" secondItem="Dbd-kn-7Zk" secondAttribute="trailing" constant="1" id="RKD-lv-Wn4"/>
+                                            <constraint firstItem="Dbd-kn-7Zk" firstAttribute="leading" secondItem="coj-5G-Bg1" secondAttribute="trailing" constant="1" id="g5s-4w-iNg"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="noV-Nu-OCd" customClass="WaveformImageView" customModule="DSWaveformImage">
-                                        <rect key="frame" x="0.0" y="196" width="1024" height="120"/>
-                                        <color key="backgroundColor" red="0.070588235294117646" green="0.27843137254901962" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Rushing Water Recorded" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rze-1A-D9j" userLabel="Rush">
+                                        <rect key="frame" x="0.0" y="86" width="428" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="OXZ-uM-CZB"/>
+                                            <constraint firstAttribute="height" constant="20" id="4DM-QZ-MbX"/>
                                         </constraints>
-                                    </view>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <color key="textColor" systemColor="tertiarySystemBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z5g-Z9-Q6I">
+                                <rect key="frame" x="30" y="64" width="90" height="30"/>
+                                <state key="normal" title="Play in phase">
+                                    <color key="titleColor" red="0.64180632904692958" green="0.16078431369999999" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="playInPhase:" destination="BYZ-38-t0r" eventType="touchUpInside" id="isw-sG-SWY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.14901960784313725" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.094117647058823528" green="0.10588235294117647" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VDk-AX-AdK" secondAttribute="trailing" id="7EE-dW-x9c"/>
+                            <constraint firstItem="Z5g-Z9-Q6I" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="BAy-th-ngJ"/>
+                            <constraint firstItem="Pfw-On-he3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-5" id="G2I-GV-N82"/>
+                            <constraint firstItem="VDk-AX-AdK" firstAttribute="top" secondItem="Pfw-On-he3" secondAttribute="bottom" constant="5" id="U3v-OQ-vBU"/>
                             <constraint firstItem="VDk-AX-AdK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UcG-8J-l54"/>
-                            <constraint firstItem="VDk-AX-AdK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ynP-EV-Cty"/>
+                            <constraint firstItem="Z5g-Z9-Q6I" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="WG6-di-Ldl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VDk-AX-AdK" secondAttribute="bottom" constant="10" id="pu5-HL-6H4"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="rushingWaterPhasedSoundView" destination="noV-Nu-OCd" id="eCm-L2-KFu"/>
-                        <outlet property="rushingWaterSoundView" destination="qS6-6R-iZI" id="7Lk-7W-JT1"/>
+                        <outlet property="playButton" destination="DLq-lO-DwW" id="g4o-Wo-bwZ"/>
+                        <outlet property="stackView" destination="VDk-AX-AdK" id="NEW-8n-3U9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6" y="86"/>
+            <point key="canvasLocation" x="5.6074766355140184" y="85.529157667386613"/>
         </scene>
     </scenes>
     <resources>
+        <image name="arrowDown" width="128" height="128"/>
+        <image name="arrowUp" width="64" height="64"/>
+        <image name="play" width="100" height="100"/>
         <systemColor name="tertiarySystemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

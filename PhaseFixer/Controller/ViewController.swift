@@ -6,122 +6,92 @@
 //
 
 import UIKit
-import DSWaveformImage
-import AVFoundation
 import Accelerate
 
 class ViewController: UIViewController {
-  
-    @IBOutlet weak var rushingWaterSoundView : WaveformImageView!
-    @IBOutlet weak var rushingWaterPhasedSoundView : WaveformImageView!
-
-    let viewModel = PhaseViewModel()
-
-    private var audioPlayer: AVAudioPlayer?
-    private var audioPlayer2: AVAudioPlayer?
+    
+    @IBOutlet weak var stackView : UIStackView!
+    @IBOutlet weak var playButton : UIButton!
+    
+    let viewModel = PhaseViewModel(.rushingWater, .rushingWaterRecorded)
+    
+    var waveform : WaveForm?
+    var secondWaveform : WaveForm?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.delegate = self
         configureUI()
-        viewModel.playAudio(.rushingWater, .rushingWaterPhased)
     }
     
     //MARK:- Setup UI
     
     func configureUI() {
-        rushingWaterSoundView.layer.cornerRadius = 4
-        rushingWaterPhasedSoundView.layer.cornerRadius = 4
-        rushingWaterSoundView.configuration = Waveform.Configuration(style: .filled(#colorLiteral(red: 0.3019607843, green: 0.6392156863, blue: 1, alpha: 1)))
-        rushingWaterPhasedSoundView.configuration = Waveform.Configuration(style: .filled(#colorLiteral(red: 0.3019607843, green: 0.6392156863, blue: 1, alpha: 1)))
         configureWaveForm()
+    }
+    
+    @IBAction func trackSliderValueChanged(_ sender: UISlider) {
+        let value = sender.value
+        
+        viewModel.audioPlayerManager.changeVolume(micValue: 1 - value, wifiValue: value)
     }
     
     func configureWaveForm() {
         let rushingWaterURL = Bundle.main.url(forResource: TestCase.rushingWater.rawValue, withExtension: "m4a")!
         let rushingWaterPhasedURL = Bundle.main.url(forResource: TestCase.rushingWaterPhased.rawValue, withExtension: "m4a")!
-        
-        rushingWaterSoundView.waveformAudioURL = rushingWaterURL
-        rushingWaterPhasedSoundView.waveformAudioURL = rushingWaterPhasedURL
+        do {
+            
+            waveform = try WaveForm(audioURL: rushingWaterURL,
+                                    sampleCount: viewModel.sampleRate,
+                                    amplificationFactor: 450, audioPlayer: self.viewModel.audioPlayerManager.micAudioPlayer)
+            secondWaveform = try WaveForm(audioURL: rushingWaterPhasedURL,
+                                          sampleCount: viewModel.sampleRate,
+                                          amplificationFactor: 450, audioPlayer: self.viewModel.audioPlayerManager.wifiAudioPlayer)
+            waveform?.normalColor = #colorLiteral(red: 0.3882352941, green: 0.5019607843, blue: 0.6509803922, alpha: 1)
+            waveform?.progressColor = #colorLiteral(red: 0.5411764706, green: 0.231372549, blue: 0.7490196078, alpha: 1)
+            waveform?.backgroundColor = #colorLiteral(red: 0.1803921569, green: 0.2039215686, blue: 0.2509803922, alpha: 1)
+            waveform?.allowSpacing = false
+            
+            secondWaveform?.normalColor = #colorLiteral(red: 0.3882352941, green: 0.5019607843, blue: 0.6509803922, alpha: 1)
+            secondWaveform?.progressColor = #colorLiteral(red: 0.5411764706, green: 0.231372549, blue: 0.7490196078, alpha: 1)
+            secondWaveform?.backgroundColor = #colorLiteral(red: 0.1803921569, green: 0.2039215686, blue: 0.2509803922, alpha: 1)
+            secondWaveform?.allowSpacing = false
+            
+            stackView.insertArrangedSubview(waveform ?? UIView(), at: 1)
+            stackView.addArrangedSubview(secondWaveform ?? UIView())
+            
+            //ASWaveformPlayerView supports both manual and AutoLayout
+            waveform?.translatesAutoresizingMaskIntoConstraints = false
+            waveform?.heightAnchor.constraint(equalToConstant: 120).isActive = true
+            
+            secondWaveform?.translatesAutoresizingMaskIntoConstraints = false
+            secondWaveform?.heightAnchor.constraint(equalToConstant: 120).isActive = true
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
     //MARK:- Actions
     
     @IBAction func play(_ sender: UIButton) {
-        resetAudios()
-        startSynchronizedPlayback(with: viewModel.buffer)
-    }
-    
-    @IBAction func stop(_ sender: UIButton) {
-        resetAudios()
+        if viewModel.isPlaying {
+            UIView.animate(withDuration: 0.5) {
+                self.playButton.setImage(UIImage(named: "play"), for: .normal)
+                self.playButton.tintColor = #colorLiteral(red: 0.4745098039, green: 0.2156862745, blue: 0.6509803922, alpha: 1)
+            }
+            viewModel.pauseAudio()
+        } else {
+            UIView.animate(withDuration: 0.5) {
+                self.playButton.setImage(UIImage(named: "stop"), for: .normal)
+                self.playButton.tintColor = #colorLiteral(red: 0.2980392157, green: 0.1490196078, blue: 0.4509803922, alpha: 1)
+            }
+            viewModel.playAudio()
+        }
     }
     
     @IBAction func playInPhase(_ sender: UIButton) {
-        resetAudios()
-        startSynchronizedPlayback(with: 0)
-    }
-    
- //MARK:- Helpers
-    
-    func resetAudios() {
-        audioPlayer?.stop()
-        audioPlayer2?.stop()
-        audioPlayer?.currentTime = 0
-        audioPlayer2?.currentTime = 0
+        viewModel.playAudio(value: 0)
+        //        resetAudios()
+        //        startSynchronizedPlayback(with: 0)
     }
 }
 
-//MARK:- Playing Audio
-
-extension ViewController : AudioViewModelProtocol{
-
-    func playAudios(_ firstTrackURl: URL, _ secondTrackURl: URL, _ buffer: Double) {
-        do {
-            let data = try Data(contentsOf: firstTrackURl)
-            let data2 = try Data(contentsOf: secondTrackURl)
-            
-            self.audioPlayer = try AVAudioPlayer(data: data, fileTypeHint: AVFileType.caf.rawValue)
-            self.audioPlayer2 = try AVAudioPlayer(data: data2, fileTypeHint: AVFileType.caf.rawValue)
-            
-            startSynchronizedPlayback(with: buffer)
-        } catch let error as NSError {
-            print(error.localizedDescription)
-            return
-        }
-    }
-    
-    func startSynchronizedPlayback(with buffer: Double) {
-        do {
-            let session = AVAudioSession.sharedInstance()
-            try session.setCategory(.playback, mode: .default)
-            try session.setActive(true)
-        } catch let error as NSError {
-            print(error.localizedDescription)
-            return
-        }
-       
-        let timeOffset = audioPlayer2?.deviceCurrentTime ?? 0.0 + 0.1
-        
-        self.audioPlayer?.prepareToPlay()
-        self.audioPlayer2?.prepareToPlay()
-        self.audioPlayer?.volume = 0.5
-        self.audioPlayer2?.volume = 0.5
-        
-        audioPlayer2?.play(atTime: timeOffset)
-        audioPlayer?.play(atTime: timeOffset + buffer)
-    }
-    
-    //TODO
-    func updateProgressWaveform(_ progress: Double) {
-        let fullRect = rushingWaterSoundView.bounds
-        let newWidth = Double(fullRect.size.width) * progress
-        
-        let maskLayer = CAShapeLayer()
-        let maskRect = CGRect(x: 0.0, y: 0.0, width: newWidth, height: Double(fullRect.size.height))
-        
-        let path = CGPath(rect: maskRect, transform: nil)
-        maskLayer.path = path
-        
-        rushingWaterSoundView.layer.mask = maskLayer
-    }
-}

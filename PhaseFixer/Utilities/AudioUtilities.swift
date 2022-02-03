@@ -12,7 +12,6 @@ class AudioUtilities {
     
     let noiseFloor: Float = -80
 
-    // Returns an array of single-precision values for the specified audio resource.
     static func getAudioSamples(forResource: String,
                                 withExtension: String) -> (naturalTimeScale: CMTimeScale,
                                                            data: [Float])? {

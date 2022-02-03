@@ -12,46 +12,58 @@ import AVFoundation
 enum TestCase : String {
     case rushingWater = "RushingWater"
     case rushingWaterPhased = "RushingWaterPhased"
-}
-
-protocol AudioViewModelProtocol : AnyObject {
-    func playAudios(_ firstTrackURl: URL, _ secondTrackURl: URL, _ buffer: Double)
+    case rushingWaterRecorded = "RushingWaterRecorded"
 }
 
 class PhaseViewModel {
     
-    weak var delegate : AudioViewModelProtocol?
-    
     let sampleRate = 44100
     var buffer : Float64 = 0.0
-    var firstTrackURL : URL?
-    var secondTrackURL : URL?
+    let firstTrackURL : URL
+    let secondTrackURL : URL
+    let audioPlayerManager : AudioPlayerManager
+    var isPlaying = false
     
-    func playAudio(_ firstFileName : TestCase, _ secondFileName : TestCase) {
-        firstTrackURL = Bundle.main.url(forResource: firstFileName.rawValue, withExtension: "m4a")
-        secondTrackURL = Bundle.main.url(forResource: secondFileName.rawValue, withExtension: "m4a")
+    var isLoading = true
+    
+    init(_ firstFileName : TestCase, _ secondFileName : TestCase) {
+        firstTrackURL = Bundle.main.url(forResource: firstFileName.rawValue, withExtension: "m4a")!
+        secondTrackURL = Bundle.main.url(forResource: secondFileName.rawValue, withExtension: "m4a")!
         
-        guard let firstTrackURL = firstTrackURL else {
-            print("Error: Couldn't find file")
-            return
-        }
-        
-        guard let secondTrackURL = secondTrackURL  else {
-            print("Error: Couldn't find file")
-            return
-        }
+        audioPlayerManager = AudioPlayerManager(firstTrackURl: firstTrackURL, secondTrackURl: secondTrackURL)
         
         analysisAudios(url1: firstTrackURL, url2: secondTrackURL, completion: {
-            self.delegate?.playAudios(firstTrackURL, secondTrackURL, self.buffer)
+            print("finished with buffer:", self.buffer, "the right delay is 4.33333333333333, errorFactor:", (self.buffer / 4.33333333))
         })
+    }
+    //MARK:- AudioPlayer
+    
+    func pauseAudio() {
+        audioPlayerManager.pauseAudios()
+        isPlaying = !isPlaying
+    }
+    
+    func playAudio(value: Double? = nil) {
+        audioPlayerManager.startPlaying(with: (value == nil) ? buffer : value ?? 0)
+        if value == nil {
+            isPlaying = !isPlaying
+        }
+    }
+    
+    func stopAudio() {
+        audioPlayerManager.stopAudios()
+        isPlaying = !isPlaying
     }
     
     //MARK:- Processing audio
     
     func analysisAudios(url1 : URL, url2: URL, completion:@escaping ()->()) {
         processAndGetSamplesOfAudiosWith(url1: url1, url2: url2) { firstSamples, secondSamples in
-            let firstTrackSamples = Array(firstSamples.prefix((self.sampleRate * 3)))
-            let secondTrackSamples = Array(secondSamples.prefix((self.sampleRate * 3)))
+            let firstSamples = self.readAudio(audioUrl: url1)
+            let secondSamples = self.readAudio(audioUrl: url2)
+            let firstTrackSamples = Array(firstSamples.prefix((self.sampleRate * 1)))
+            let secondTrackSamples = Array(secondSamples.prefix((self.sampleRate * 1)))
+
             do {
                 let result = try self.getDelay(firstTrackSamples, secondTrackSamples)
                 let timeDelay: Float = self.getTimeAtPeak(result, sample_rate: self.sampleRate)
@@ -104,14 +116,12 @@ class PhaseViewModel {
         })
     }
     
-    func readAudio(filename: String, file_extension: String) -> ([Float], Int) {
-        let audioUrl = Bundle.main.url(forResource: filename, withExtension: file_extension)!
+    func readAudio(audioUrl: URL) -> ([Float]) {
         let audioFile = try! AVAudioFile(forReading: audioUrl)
         let audioFileFormat = audioFile.processingFormat
         let audioFileSize = UInt32(audioFile.length)
         let audioBuffer = AVAudioPCMBuffer(pcmFormat: audioFileFormat, frameCapacity: audioFileSize)!
         try! audioFile.read(into: audioBuffer)
-        return (Array(UnsafeBufferPointer(start: audioBuffer.floatChannelData![0], count: Int(audioBuffer.frameLength))), Int(audioFile.fileFormat.sampleRate))
+        return (Array(UnsafeBufferPointer(start: audioBuffer.floatChannelData![0], count: Int(audioBuffer.frameLength))))
     }
-    
 }
